@@ -6,24 +6,14 @@ export const dripMsg = (data: BlockchainData, calcs: Calculations): string => {
   const msg = `
 💧 <b><a href="https://dripnetwork.io/">Drip Network</a></b> 💧
     
-<a href="https://dripnetwork.io/dapp/swap">Fountain</a>: <b>$${numFor3.format(
-    calcs.dripFountainPrice
-  )}</b>
-<a href="https://pancakeswap.finance/swap?inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56&outputCurrency=0x20f663CEa80FaCE82ACDFA3aAE6862d246cE0333">PCS</a>: <b>$${numFor3.format(
-    calcs.dripBusdPrice
-  )}</b>
-<a href="https://dripnetwork.io/dapp/reservoir">DROPS LP</a>: <b>$${numFor2.format(
-    calcs.dropsPrice
-  )}</b>
-<a href="https://theanimal.farm/dripliberation">DRIP/BUSD LP</a>: <b>$${numFor2.format(
-    calcs.dripBusdLpPrice
-  )}</b>
-<a href="https://v1exchange.pancakeswap.finance/#/swap?outputCurrency=0xa86d305A36cDB815af991834B46aD3d7FbB38523">BR34P PCS V1</a>: <b>$${numFor2.format(
-    calcs.br34pWbnbPrice
-  )}</b>
-<a href="https://dripnetwork.io/dapp/ddd">DDD Ticket</a>: <b>$${numFor2.format(
-    1
-  )}</b>
+Fountain: <b>$${numFor3.format(calcs.dripFountainPrice)}</b>
+DRIP/BUSD: <b>$${numFor3.format(calcs.dripBusdPrice)}</b>
+WDRIP/WBNB: <b>$${numFor3.format(calcs.wdripWbnbPrice)}</b>
+WDRIP/WPLS: <b>$${numFor3.format(calcs.wdripWplsPrice)}</b>
+DROPS LP: <b>$${numFor2.format(calcs.dropsPrice)}</b>
+DRIP/BUSD LP: <b>$${numFor2.format(calcs.dripBusdLpPrice)}</b>
+BR34P PCS V1: <b>$${numFor2.format(calcs.br34pWbnbPrice)}</b>
+DDD Ticket: <b>$${numFor2.format(1)}</b>
     
 <i><u>Totals</u></i>
 Wallets: <b>${formatNumberWithSuffix(data.totalDripWallets)}</b>

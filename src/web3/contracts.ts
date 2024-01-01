@@ -13,6 +13,7 @@ const chainlinkAbi = parseAbi([
 
 const lpAbi = parseAbi([
   'function getReserves() view returns (uint112, uint112, uint32)',
+  'function slot0() view returns (uint160, int24, uint16, uint16, uint16, uint32, bool)',
 ]);
 
 export const contracts = {
@@ -99,6 +100,14 @@ export const contracts = {
   },
   br34pWbnb: {
     address: '0x70e882efa9beA28262d4873e65d5f65E9B2bABa6',
+    abi: lpAbi,
+  },
+  wdripWbnb: {
+    address: '0x41e3149918f8EFeE8Ef6f47CF45D4CE580F837cB',
+    abi: lpAbi,
+  },
+  wdripWpls: {
+    address: '0x7091580d383d7c0a3ac0017adb5f8a549d9784cd',
     abi: lpAbi,
   },
 } as const;

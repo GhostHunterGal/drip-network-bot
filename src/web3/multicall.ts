@@ -1,6 +1,7 @@
-import { client } from './client';
+import { bscClient, plsClient } from './client';
 import { contracts, erc20Abi } from './contracts';
 import { formatEther, formatUnits, parseEther } from 'viem';
+import axios from 'axios';
 
 export interface BlockchainData {
   bnbPrice: number;
@@ -37,10 +38,13 @@ export interface BlockchainData {
   faucetDripBalance: number;
   dripDripBalance: number;
   br34pWbnbReserves: number[];
+  wdripWbnbSlot0: any;
+  wdripWplsReserves: number[];
+  wplsPrice: number;
 }
 
 export const getBlockchainData = async () => {
-  const results = await client.multicall({
+  const results = await bscClient.multicall({
     contracts: [
       {
         ...contracts.chainlinkBnb,
@@ -192,18 +196,38 @@ export const getBlockchainData = async () => {
         ...contracts.br34pWbnb,
         functionName: 'getReserves',
       },
+      {
+        ...contracts.wdripWbnb,
+        functionName: 'slot0',
+      },
     ],
   });
 
-  const dddMarketingWbnbBalance = await client.getBalance({
+  const dddMarketingWbnbBalance = await bscClient.getBalance({
     address: contracts.dddMarketing.address,
   });
 
-  const dddRoundInfo = await client.readContract({
+  const dddRoundInfo = await bscClient.readContract({
     ...contracts.ddd,
     functionName: 'roundsInfo',
     args: [results[18].result as bigint],
   });
+
+  const plsResults = await plsClient.multicall({
+    contracts: [
+      {
+        ...contracts.wdripWpls,
+        functionName: 'getReserves',
+      },
+    ],
+  });
+
+  const response = await axios.get(
+    `https://api.geckoterminal.com/api/v2/simple/networks/pulsechain/token_price/0xa1077a294dde1b09bb078844df40758a5d0f9a27`
+  );
+
+  const tokenPrices = response.data.data.attributes.token_prices;
+  const wplsPrice = tokenPrices['0xa1077a294dde1b09bb078844df40758a5d0f9a27'];
 
   const data = {
     bnbPrice: Number(formatUnits(results[0].result as bigint, 8)),
@@ -287,6 +311,17 @@ export const getBlockchainData = async () => {
     br34pWbnbReserves: (results[31].result as bigint[]).map((value, index) =>
       index === 0 ? Number(formatUnits(value, 8)) : Number(formatEther(value))
     ),
+    wdripWbnbSlot0: (results[32].result as bigint[]).map((value, index) => {
+      if (index === 0) {
+        return value;
+      } else {
+        return value;
+      }
+    }),
+    wdripWplsReserves: (plsResults[0].result as unknown as bigint[]).map(
+      (value) => Number(formatEther(value))
+    ),
+    wplsPrice: Number(wplsPrice),
   };
 
   return data;
