@@ -22,6 +22,7 @@ Liquidity Supply: <b>${formatNumberWithSuffix(calcs.lpDripBalance)}</b>
 Liquid in Wallets: <b>${formatNumberWithSuffix(calcs.liquidDripBalance)}</b>
 Tax Vault: <b>${formatNumberWithSuffix(data.dripVaultDripBalance)}</b>
 DDD Vault: <b>${formatNumberWithSuffix(data.dddVaultDripBalance)}</b>
+Kitchen Sink: <b>${formatNumberWithSuffix(data.kitchenSinkDripBalance)}</b>
 `;
 
   return msg;
