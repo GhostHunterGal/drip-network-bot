@@ -39,6 +39,7 @@ export interface BlockchainData {
   dripDripBalance: number;
   br34pWbnbReserves: number[];
   wdripWbnbSlot0: any;
+  wdripDripxSlot0: any;
   wdripWplsReserves: number[];
   wplsPrice: number;
 }
@@ -200,6 +201,10 @@ export const getBlockchainData = async () => {
         ...contracts.wdripWbnb,
         functionName: 'slot0',
       },
+      {
+        ...contracts.wdripDripx,
+        functionName: 'slot0',
+      },
     ],
   });
 
@@ -312,6 +317,13 @@ export const getBlockchainData = async () => {
       index === 0 ? Number(formatUnits(value, 8)) : Number(formatEther(value))
     ),
     wdripWbnbSlot0: (results[32].result as bigint[]).map((value, index) => {
+      if (index === 0) {
+        return value;
+      } else {
+        return value;
+      }
+    }),
+    wdripDripxSlot0: (results[33].result as bigint[]).map((value, index) => {
       if (index === 0) {
         return value;
       } else {

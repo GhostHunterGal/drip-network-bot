@@ -110,4 +110,8 @@ export const contracts = {
     address: '0x7091580d383d7c0a3ac0017adb5f8a549d9784cd',
     abi: lpAbi,
   },
+  wdripDripx: {
+    address: '0x54A7A21906E6bBb4C1320D69E65888ce19CaAa1A',
+    abi: lpAbi,
+  },
 } as const;
