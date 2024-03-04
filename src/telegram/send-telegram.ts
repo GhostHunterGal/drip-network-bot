@@ -41,15 +41,15 @@ const sendTelegramMsg = async (msg: string, topic?: number): Promise<void> => {
     gardenMsg(data, calcs),
   ]);
 
-  await sendTelegramMsg(gardenMessage, 16830);
+  await sendTelegramMsg(gardenMessage, 16830); // 750
   await sleep(messageDelay);
-  await sendTelegramMsg(reservoirMessage, 16832);
+  await sendTelegramMsg(reservoirMessage, 16832); // 752
   await sleep(messageDelay);
-  await sendTelegramMsg(dddMessage, 16834);
+  await sendTelegramMsg(dddMessage, 16834); // 748
   await sleep(messageDelay);
-  await sendTelegramMsg(faucetMessage, 16836);
+  await sendTelegramMsg(faucetMessage, 16836); // 67
   await sleep(messageDelay);
-  await sendTelegramMsg(liquidityMessage, 16838);
+  await sendTelegramMsg(liquidityMessage, 16838); // 127
   await sleep(messageDelay);
   await sendTelegramMsg(dripMessage);
 })();

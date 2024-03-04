@@ -36,7 +36,7 @@ export interface Calculations {
   br34pWbnbPrice: number;
   wdripWbnbPrice: number;
   wdripWplsPrice: number;
-  wdripDripxPrice: number;
+  dripxWbnbPrice: number;
 }
 
 export const doCalcs = async (data: BlockchainData) => {
@@ -132,10 +132,11 @@ export const doCalcs = async (data: BlockchainData) => {
   const buyOneOfToken1 = 1 / buyOneOfToken0;
   const wdripWbnbPrice = buyOneOfToken1 * data.bnbPrice;
 
-  const [wdripDripxSqrtPriceX96] = data.wdripDripxSlot0;
-  const wdripDripxSqrtPrice = Number(wdripDripxSqrtPriceX96) / 2 ** 96;
-  const wdripDripxBuyOneOfToken0 = wdripDripxSqrtPrice * wdripDripxSqrtPrice;
-  const wdripDripxPrice = wdripDripxBuyOneOfToken0 * wdripWbnbPrice;
+  const [dripxWbnbSqrtPriceX96] = data.dripxWbnbSlot0;
+  const dripxWbnbSqrtPrice = Number(dripxWbnbSqrtPriceX96) / 2 ** 96;
+  const dripxWbnbBuyOneOfToken0 = dripxWbnbSqrtPrice * dripxWbnbSqrtPrice;
+  const dripxWbnbBuyOneOfToken1 = 1 / dripxWbnbBuyOneOfToken0;
+  const dripxWbnbPrice = dripxWbnbBuyOneOfToken1 * data.bnbPrice;
 
   const [wdripWplsReserve0, wdripWplsReserve1] = data.wdripWplsReserves;
   const wdripWplsRatio = wdripWplsReserve1 / wdripWplsReserve0;
@@ -177,6 +178,6 @@ export const doCalcs = async (data: BlockchainData) => {
     br34pWbnbPrice: br34pWbnbPrice,
     wdripWbnbPrice: wdripWbnbPrice,
     wdripWplsPrice: wdripWplsPrice,
-    wdripDripxPrice: wdripDripxPrice,
+    dripxWbnbPrice: dripxWbnbPrice,
   };
 };

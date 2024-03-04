@@ -15,7 +15,7 @@ Fountain: <b>$${numFor3.format(calcs.dripFountainPrice)}</b>
 DRIP/BUSD: <b>$${numFor3.format(calcs.dripBusdPrice)}</b>
 WDRIP/WBNB: <b>$${numFor3.format(calcs.wdripWbnbPrice)}</b>
 WDRIP/WPLS: <b>$${numFor3.format(calcs.wdripWplsPrice)}</b>
-DRIPX/WDRIP: <b>$${numFor9.format(calcs.wdripDripxPrice)}</b>
+DRIPX/WBNB: <b>$${numFor9.format(calcs.dripxWbnbPrice)}</b>
 DROPS LP: <b>$${numFor2.format(calcs.dropsPrice)}</b>
 DRIP/BUSD LP: <b>$${numFor2.format(calcs.dripBusdLpPrice)}</b>
 BR34P PCS V1: <b>$${numFor2.format(calcs.br34pWbnbPrice)}</b>
