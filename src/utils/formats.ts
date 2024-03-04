@@ -38,3 +38,4 @@ export const numFor = createNumberFormatter(0, 0);
 export const numFor2 = createNumberFormatter(2, 2);
 export const numFor3 = createNumberFormatter();
 export const numFor6 = createNumberFormatter(undefined, 6);
+export const numFor9 = createNumberFormatter(undefined, 9);

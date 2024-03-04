@@ -4,7 +4,7 @@ import {
   formatNumberWithSuffix,
   numFor2,
   numFor3,
-  numFor6,
+  numFor9,
 } from '../../utils/formats';
 
 export const dripMsg = (data: BlockchainData, calcs: Calculations): string => {
@@ -15,7 +15,7 @@ Fountain: <b>$${numFor3.format(calcs.dripFountainPrice)}</b>
 DRIP/BUSD: <b>$${numFor3.format(calcs.dripBusdPrice)}</b>
 WDRIP/WBNB: <b>$${numFor3.format(calcs.wdripWbnbPrice)}</b>
 WDRIP/WPLS: <b>$${numFor3.format(calcs.wdripWplsPrice)}</b>
-DRIPX/WDRIP: <b>$${numFor6.format(calcs.wdripDripxPrice)}</b>
+DRIPX/WDRIP: <b>$${numFor9.format(calcs.wdripDripxPrice)}</b>
 DROPS LP: <b>$${numFor2.format(calcs.dropsPrice)}</b>
 DRIP/BUSD LP: <b>$${numFor2.format(calcs.dripBusdLpPrice)}</b>
 BR34P PCS V1: <b>$${numFor2.format(calcs.br34pWbnbPrice)}</b>
