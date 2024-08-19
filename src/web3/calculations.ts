@@ -1,4 +1,4 @@
-import { BlockchainData } from './multicall';
+import { BlockchainData } from './multicall.js';
 
 export interface Calculations {
   dripBusdReserve0: number;

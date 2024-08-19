@@ -1,5 +1,5 @@
-import { BlockchainData } from '../../web3/multicall';
-import { formatNumberWithSuffix } from '../../utils/formats';
+import { BlockchainData } from '../../web3/multicall.js';
+import { formatNumberWithSuffix } from '../../utils/formats.js';
 
 export const faucetMsg = (data: BlockchainData): string => {
   const msg: string = `

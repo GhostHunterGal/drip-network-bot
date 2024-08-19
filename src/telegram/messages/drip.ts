@@ -1,11 +1,11 @@
-import { BlockchainData } from '../../web3/multicall';
-import { Calculations } from '../../web3/calculations';
+import { BlockchainData } from '../../web3/multicall.js';
+import { Calculations } from '../../web3/calculations.js';
 import {
   formatNumberWithSuffix,
   numFor2,
   numFor3,
   numFor9,
-} from '../../utils/formats';
+} from '../../utils/formats.js';
 
 export const dripMsg = (data: BlockchainData, calcs: Calculations): string => {
   const msg = `

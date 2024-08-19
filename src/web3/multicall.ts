@@ -1,7 +1,8 @@
-import { bscClient, plsClient } from './client';
-import { contracts, erc20Abi } from './contracts';
+import { bscClient, plsClient } from './client.js';
+import { contracts, erc20Abi } from './contracts.js';
 import { formatEther, formatUnits, parseEther } from 'viem';
 import axios from 'axios';
+import axiosRetry from 'axios-retry';
 
 export interface BlockchainData {
   bnbPrice: number;
@@ -225,6 +226,11 @@ export const getBlockchainData = async () => {
         functionName: 'getReserves',
       },
     ],
+  });
+
+  axiosRetry(axios, {
+    retries: 3,
+    retryDelay: axiosRetry.exponentialDelay,
   });
 
   const response = await axios.get(

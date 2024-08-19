@@ -1,12 +1,12 @@
-import { BlockchainData } from '../../web3/multicall';
-import { Calculations } from '../../web3/calculations';
-import { convertSecondsToTime } from '../../utils/misc';
+import { BlockchainData } from '../../web3/multicall.js';
+import { Calculations } from '../../web3/calculations.js';
+import { convertSecondsToTime } from '../../utils/misc.js';
 import {
   abbreviateAddress,
   formatNumberWithSuffix,
   numFor,
   numFor2,
-} from '../../utils/formats';
+} from '../../utils/formats.js';
 
 export const dddMsg = (data: BlockchainData, calcs: Calculations): string => {
   const msg: string = `

@@ -1,4 +1,4 @@
-import { NODE_ENDPOINT } from '../utils/env-vars';
+import { NODE_ENDPOINT } from '../utils/env-vars.js';
 import { createPublicClient, fallback, http } from 'viem';
 import { bsc, pulsechain } from 'viem/chains';
 
